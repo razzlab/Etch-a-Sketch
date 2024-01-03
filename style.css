@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    border-bottom: 2px solid black;
     
 }
 
@@ -10,4 +11,18 @@ ul{
     display: flex;
     list-style: none;
     gap: 5px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.grid{
+    border: 8px solid black;
+    height: 80vh;
+    width: 80vb;
+    border-radius: 20px;
 }
