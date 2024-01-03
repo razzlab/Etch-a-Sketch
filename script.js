@@ -5,11 +5,19 @@ randomDiv.textContent = "single"
 const randomOrPick = document.querySelector('.random').innerHTML
 randomDiv.textContent = "single"
 
+const color = () => {
+    if(randomOrPick=="singl"){
+        return userColorPick
+    }else{
+        return ("#" + Math.floor(100000 + Math.random() * 900000))
+    }
+}
 
 
 
 
-console.log(grid,userColorPick,randomOrPick)
+
+console.log(grid,userColorPick,randomOrPick,color())
 
 
 
