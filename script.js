@@ -6,40 +6,51 @@ const resetButton = document.querySelector('.reset')
 const setGrid = document.querySelector('.grid-size')
 let xgridx = 16;
 
+
+
 const color = () => {
-    if(randomOrPick=="single"){
+    if(randomOrPick=="Single"){
         return userColorPick
     }else{
         return ("#" + Math.floor(100000 + Math.random() * 900000))
     }
 }
 
-setGrid.addEventListener('onclick', ()=>{
+setGrid.addEventListener('click', ()=>{
     xgridx = prompt("Please enter grid size", xgridx);
+    
 })
 
 
 randomDiv.addEventListener('click',()=>{
     let hereRandomOrPick = document.querySelector('.random').innerHTML
-    if(hereRandomOrPick=="single"){
-        randomDiv.textContent= "random"
+    if(hereRandomOrPick=="Single"){
+        randomDiv.textContent= "Random"
     }else{
-        randomDiv.textContent="single"
+        randomDiv.textContent="Single"
     }
 })
 
 resetButton.addEventListener('click',()=>{
     xgridx = 16;
-    randomDiv.textContent = "single";
+    randomDiv.textContent = "Single";
     userColorPick.textContent = "#000000"
 });
 
 
 
+ for(let i=0;i<xgridx;i++){
+    const divOfGrid = document.createElement('Div');
+    divOfGrid.setAttribute('class', 'div'+i);
+    grid.appendChild(divOfGrid)
+};
 
 
 
-console.log(grid,userColorPick,randomOrPick,color())
+
+
+
+console.log(grid,userColorPick,randomOrPick,color(),grid.childElementCount)
 
 
 
