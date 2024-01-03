@@ -1,9 +1,7 @@
 const grid = document.querySelector('.grid')
 const userColorPick = document.querySelector('#ink').value
 const randomDiv = document.querySelector('.random')
-randomDiv.textContent = "single"
-const randomOrPick = document.querySelector('.random').innerHTML
-randomDiv.textContent = "single"
+let randomOrPick = document.querySelector('.random').innerHTML
 const resetButton = document.querySelector('.reset')
 const setGrid = document.querySelector('.grid-size')
 let xgridx = 16;
@@ -16,10 +14,19 @@ const color = () => {
     }
 }
 
-setGrid.addEventListener('click', ()=>{
+setGrid.addEventListener('onclick', ()=>{
     xgridx = prompt("Please enter grid size", xgridx);
 })
 
+
+randomDiv.addEventListener('click',()=>{
+    let hereRandomOrPick = document.querySelector('.random').innerHTML
+    if(hereRandomOrPick=="single"){
+        randomDiv.textContent= "random"
+    }else{
+        randomDiv.textContent="single"
+    }
+})
 
 resetButton.addEventListener('click',()=>{
     xgridx = 16;
