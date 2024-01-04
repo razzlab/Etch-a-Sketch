@@ -23,6 +23,13 @@ const color = () => {
 
 setGrid.addEventListener('click', ()=>{
     xgridx = prompt("Please enter grid size", xgridx);
+    while (xgridx > 90) {
+        xgridx = prompt("Please enter grid size", xgridx);
+        if (xgridx < 90) {            
+            break;
+        } 
+    }
+   
     iCreateDiv()
     
 })
