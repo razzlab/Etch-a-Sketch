@@ -25,6 +25,8 @@ ul{
     height: 80vh;
     width: 80vb;
     border-radius: 20px;
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
+    
+    
 }

@@ -1,29 +1,35 @@
 const grid = document.querySelector('.grid')
-const userColorPick = document.querySelector('#ink').value
+
 const randomDiv = document.querySelector('.random')
-let randomOrPick = document.querySelector('.random').innerHTML
 const resetButton = document.querySelector('.reset')
 const setGrid = document.querySelector('.grid-size')
 let xgridx = 16;
+randomDiv.textContent= "Single";
+
 
 
 
 const color = () => {
-    if(randomOrPick=="Single"){
+    let userColorPick = document.querySelector('#ink').value
+    if(randomDiv.innerHTML=="Single"){
         return userColorPick
+        
     }else{
         return ("#" + Math.floor(100000 + Math.random() * 900000))
+        
     }
+    
 }
 
 setGrid.addEventListener('click', ()=>{
     xgridx = prompt("Please enter grid size", xgridx);
+    iCreateDiv()
     
 })
 
 
 randomDiv.addEventListener('click',()=>{
-    let hereRandomOrPick = document.querySelector('.random').innerHTML
+    let hereRandomOrPick = randomDiv.innerHTML
     if(hereRandomOrPick=="Single"){
         randomDiv.textContent= "Random"
     }else{
@@ -32,25 +38,60 @@ randomDiv.addEventListener('click',()=>{
 })
 
 resetButton.addEventListener('click',()=>{
+    //let userColorPick = document.querySelector('#ink').value
     xgridx = 16;
     randomDiv.textContent = "Single";
-    userColorPick.textContent = "#000000"
+    document.querySelector('#ink').value = "#000000"
+    iCreateDiv()
 });
 
 
-
- for(let i=0;i<xgridx;i++){
+function iCreateDiv(){
+    
+    let userColorPick = document.querySelector('#ink').value
+while ( grid.firstChild ) {grid.removeChild( grid.firstChild )};
+for(let i=0;i<(xgridx*xgridx);i++){
     const divOfGrid = document.createElement('Div');
-    divOfGrid.setAttribute('class', 'div'+i);
-    grid.appendChild(divOfGrid)
-};
+    divOfGrid.setAttribute('id', 'div'+i);
+    divOfGrid.setAttribute('class', 'divOfGrid');
+    grid.appendChild(divOfGrid);
+    
+    grid.style.gridTemplateColumns ="repeat("+xgridx+",1fr)";
+   };
+
+   const gridDivs = document.querySelectorAll('.divOfGrid');
+gridDivs.forEach((a) => {
+   
+  
+  a.addEventListener('mouseover', () => {
+    a.style.backgroundColor = color();
+  
+});
+
+});
+
+}; 
 
 
 
+    iCreateDiv()
+
+
+ 
+ 
+ 
+ 
+    
 
 
 
-console.log(grid,userColorPick,randomOrPick,color(),grid.childElementCount)
+//console.log(userColorPick);
+
+
+ 
+
+
+
 
 
 
